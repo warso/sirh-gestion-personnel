@@ -1,6 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="dev.sgp.entite.Collaborateur"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 
@@ -18,11 +19,14 @@
 <body class="container">
 
 	<h2>Les collaborateurs :</h2>
-
-	<br>
-	<br>
-	<br>
-
+	
+	<a href="<c:url value='/collaborateurs/nouveau'></c:url>"
+		class="btn btn-primary">Nouveau</a>
+	<ul>
+		<c:forEach var="collab" items="${listeCollaborateurs}">
+			<li>${collab.matricule}- ${collab.nom} ${collab.prenom}</li>
+		</c:forEach>
+	</ul>
 	<form class="form-horizontal">
 		<fieldset>
 
