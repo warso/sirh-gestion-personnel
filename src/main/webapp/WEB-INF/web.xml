@@ -37,7 +37,7 @@
 		<servlet-class>dev.sgp.web.VisiteController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>VisiteControllerController</servlet-name>
+		<servlet-name>VisiteController</servlet-name>
 		<url-pattern>/logs/statistiques</url-pattern>
 	</servlet-mapping>
 	
