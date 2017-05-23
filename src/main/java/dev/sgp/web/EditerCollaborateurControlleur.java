@@ -2,6 +2,7 @@ package dev.sgp.web;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,8 @@ public class EditerCollaborateurControlleur extends HttpServlet {
 			resp.getWriter().write("Un matricule est attendu");
 		}
 	}
-
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws
 
 	ServletException, IOException {
@@ -38,7 +40,7 @@ public class EditerCollaborateurControlleur extends HttpServlet {
 		String titreParam = req.getParameter("Titre");
 		String nomParam = req.getParameter("Nom");
 		String prenomParam = req.getParameter("Prenom");
-
+		
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		if (matriculeParam != null && titreParam != null && nomParam != null && prenomParam != null) {
