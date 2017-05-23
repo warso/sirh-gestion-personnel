@@ -10,41 +10,34 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-public class FrequentationFilter implements Filter {
+import dev.sgp.entite.VisiteWeb;
+import dev.sgp.service.VisiteWebService;
+import dev.sgp.util.Constantes;
 
-	private FilterConfig config = null;
+public class FrequentationFilter implements Filter {
+	
+	private VisiteWebService visiteService = Constantes.VISIT_SERVICE;
+	
 
 	@Override
-
 	public void init(FilterConfig config) throws ServletException {
 
-		this.config = config;
-
-		config.getServletContext().log("TimerFilter initialized");
-
 	}
 
 	@Override
-
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
-
-			throws IOException, ServletException {
-
-		long before = System.currentTimeMillis();
-
-		chain.doFilter(req, resp);
-
-		long after = System.currentTimeMillis();
-
+		throws IOException, ServletException {
+		
 		String path = ((HttpServletRequest) req).getRequestURI();
-
-		config.getServletContext().log(path + " : " + (after - before));
-
+		
+		long before = System.currentTimeMillis();
+		chain.doFilter(req, resp);
+		long after = System.currentTimeMillis();
+		
+		visiteService.sauvegarderVisite(new VisiteWeb(path, after - before));
+		
 	}
 
 	@Override
-
-	public void destroy() {
-	}
-
+	public void destroy() {}
 }

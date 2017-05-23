@@ -4,11 +4,10 @@ public class VisiteWeb {
 
 	private Integer id;
 	private String chemin;
-	private Integer tempsExecution;
+	private long tempsExecution;
 
-	public VisiteWeb(Integer id, String chemin, Integer tempsExecution) {
+	public VisiteWeb(String chemin, long tempsExecution) {
 		super();
-		this.id = id;
 		this.chemin = chemin;
 		this.tempsExecution = tempsExecution;
 	}
@@ -29,11 +28,11 @@ public class VisiteWeb {
 		this.chemin = chemin;
 	}
 
-	public Integer getTempsExecution() {
+	public long getTempsExecution() {
 		return tempsExecution;
 	}
 
-	public void setTempsExecution(Integer tempsExecution) {
+	public void setTempsExecution(long tempsExecution) {
 		this.tempsExecution = tempsExecution;
 	}
 

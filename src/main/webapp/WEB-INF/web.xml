@@ -25,13 +25,22 @@
 
 	<servlet>
 		<servlet-name>NouveauCollaborateurController</servlet-name>
-
 		<servlet-class>dev.sgp.web.NouveauCollaborateursController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>NouveauCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/nouveau</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>VisiteController</servlet-name>
+		<servlet-class>dev.sgp.web.VisiteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VisiteControllerController</servlet-name>
+		<url-pattern>/logs/statistiques</url-pattern>
+	</servlet-mapping>
+	
 
 
 	<filter>
