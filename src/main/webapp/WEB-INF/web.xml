@@ -16,7 +16,7 @@
 
 	<servlet>
 		<servlet-name>EditerCollaborateurController</servlet-name>
-		<servlet-class>dev.sgp.web.EditerCollaborateurControlleur</servlet-class>
+		<servlet-class>dev.sgp.web.EditerCollaborateurController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>EditerCollaborateurController</servlet-name>
@@ -25,10 +25,22 @@
 
 	<servlet>
 		<servlet-name>NouveauCollaborateurController</servlet-name>
-		<servlet-class>dev.sgp.web.NouveauCollaborateurController</servlet-class>
+
+		<servlet-class>dev.sgp.web.NouveauCollaborateursController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>NouveauCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/nouveau</url-pattern>
 	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>FrequentationFilter</filter-name>
+		<filter-class>dev.sgp.filtre.FrequentationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FrequentationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app>
