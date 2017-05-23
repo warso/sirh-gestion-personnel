@@ -31,4 +31,5 @@
 		<servlet-name>NouveauCollaborateurController</servlet-name>
 		<url-pattern>/collaborateurs/nouveau</url-pattern>
 	</servlet-mapping>
+	
 </web-app>
