@@ -52,7 +52,7 @@ public class NouveauCollaborateursController extends HttpServlet {
 		String prenom = request.getParameter("prenom");
 		String adresse = request.getParameter("adresse");
 		String dateNaissanceBefore = request.getParameter("datedenaissance");
-		LocalDate dateNaissance = LocalDate.parse(dateNaissanceBefore);
+		LocalDate DateDeNaissance = LocalDate.parse(dateNaissanceBefore);
 		String numsecu = request.getParameter("numsecu");
 
 		// /* fichier application.properties dans /resources */
@@ -70,7 +70,7 @@ public class NouveauCollaborateursController extends HttpServlet {
 		collab.setMatricule(matricule);
 		collab.setNom(nom);
 		collab.setPrenom(prenom);
-		collab.setDateDeNaissance(dateNaissance);
+		collab.setDateDeNaissance(DateDeNaissance);
 		collab.setAdresse(adresse);
 		collab.setNumSecu(numsecu);
 		collab.setEmailPro(emailPro);

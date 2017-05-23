@@ -97,8 +97,7 @@
 
 				<!-- Button -->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="singlebutton">Single
-						Button</label>
+					<label class="col-md-4 control-label" for="singlebutton"></label>
 					<div class="col-md-4">
 						<button id="singlebutton" type="post" name="singlebutton"
 							class="btn btn-primary">Créer</button>
