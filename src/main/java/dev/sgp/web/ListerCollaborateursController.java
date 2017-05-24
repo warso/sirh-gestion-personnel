@@ -34,7 +34,6 @@ public class ListerCollaborateursController extends HttpServlet {
 	 */
 	public ListerCollaborateursController() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

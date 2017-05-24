@@ -21,15 +21,18 @@
 
 <body class="container">
 
-<a href="nouveau" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> nouveau</a>
-<a href="activites" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span>activites</a>
-<a href="../logs/statistiques" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> statistiques</a>
+	<a href="nouveau" class="btn btn-lg btn-primary"><span
+		class="glyphicon glyphicon-user"></span> nouveau</a>
+	<a href="../collab/activites" class="btn btn-lg btn-primary"><span
+		class="glyphicon glyphicon-user"></span>activites</a>
+	<a href="../logs/statistiques" class="btn btn-lg btn-primary"><span
+		class="glyphicon glyphicon-user"></span> statistiques</a>
 
 	<h2>Les collaborateurs :</h2>
-	
+
 	<ul>
 		<c:forEach var="collab" items="${listeCollaborateurs}">
-			<li>${collab.matricule}- ${collab.nom} ${collab.prenom}</li>
+			<li>${collab.matricule}-${collab.nom} ${collab.prenom}</li>
 		</c:forEach>
 	</ul>
 	<form class="form-horizontal">
@@ -70,8 +73,6 @@
 				<div class="col-md-4">
 					<label class="checkbox-inline" for="checkboxes-0"> <input
 						type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-
-					</label>
 				</div>
 			</div>
 
@@ -93,7 +94,6 @@
 	<div class="jumbotron row ">
 
 		<%
-
 			List<Collaborateur> collaborateurs = (List<Collaborateur>) request.getAttribute("collaborateurs");
 
 			for (Collaborateur collab : collaborateurs) {
@@ -102,13 +102,10 @@
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
 
 			<ul>
-				<li>
-					Nom : <%=collab.getNom()%><br>
-					Prenom : <%=collab.getPrenom()%><br> 
+				<li>Nom : <%=collab.getNom()%><br> Prenom : <%=collab.getPrenom()%><br>
 					Date de Naissance : <%=collab.getDateDeNaissance()%><br>
-					Adresse : <%=collab.getAdresse()%><br> 
-					Numero de sécurité sociale : <%=collab.getNumSecu()%><br>
-					Email professionel : <%=collab.getEmailPro()%><br>
+					Adresse : <%=collab.getAdresse()%><br> Numero de sécurité
+					sociale : <%=collab.getNumSecu()%><br> Email professionel : <%=collab.getEmailPro()%><br>
 					<br>
 				</li>
 				<a href="" class="btn btn-xs btn-warning pull-right"><span

@@ -1,40 +1,48 @@
 package dev.sgp.service;
 
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import dev.sgp.entite.CollabEvt;
 import dev.sgp.entite.Collaborateur;
 import dev.sgp.entite.TypeCollabEvt;
 
-@ApplicationScoped
+@Stateless
+@TransactionManagement(value = TransactionManagementType.CONTAINER)
 public class CollaborateurService {
 
+	@PersistenceContext(unitName = "sgp-pu")
+	EntityManager emfact;
 
-	List<Collaborateur> listeCollaborateurs = new ArrayList<>();
-	
 	@Inject
 	Event<CollabEvt> collabEvt;
 
 	public List<Collaborateur> listerCollaborateurs() {
 
-		return listeCollaborateurs;
+		TypedQuery<Collaborateur> query = emfact.createQuery("select c from Collaborateur c", Collaborateur.class);
+
+		return query.getResultList();
 
 	}
 
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void sauvegarderCollaborateur(Collaborateur collab) {
 
-		listeCollaborateurs.add(collab);
-
-		CollabEvt nouveauCollabEvt = new CollabEvt(collab.getDateHeureCreation(), TypeCollabEvt.valueOf("CREATION_COLLAB"), collab.getMatricule());
-
-		collabEvt.fire(nouveauCollabEvt); // déclenche un nouvel événement
+		emfact.persist(collab);
+		CollabEvt nouveauCollabEvt = new CollabEvt(collab.getDateHeureCreation(), TypeCollabEvt.valueOf("CREATION_COLLAB"),
+				collab.getMatricule());
+		collabEvt.fire(nouveauCollabEvt);
 
 	}
-	
+
 }

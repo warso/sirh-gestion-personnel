@@ -2,12 +2,20 @@ package dev.sgp.entite;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
 public class Collaborateur {
 
 	public Collaborateur(String nom, String prenom, LocalDate dateDeNaissance, String adresse, String numSecu,
 			String emailPro) {
 		super();
+		this.matricule = UUID.randomUUID().toString();
 		this.nom = nom;
 		this.prenom = prenom;
 		DateDeNaissance = dateDeNaissance;
@@ -23,25 +31,27 @@ public class Collaborateur {
 		this.photo = "urls de l'image";
 
 	}
-
+	
+	@Id
 	private String matricule;
+	
 
 	private String nom;
-
+	
 	private String prenom;
-
+	
 	private LocalDate DateDeNaissance;
-
+	
 	private String adresse;
 
 	private String numSecu;
 
 	private String emailPro;
-
+	
 	private String photo;
-
+	
 	private ZonedDateTime dateHeureCreation;
-
+	
 	private boolean actif;
 
 	public String getMatricule() {
