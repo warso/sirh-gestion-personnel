@@ -14,28 +14,22 @@
 <body>
 <a href="../collaborateurs/lister" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> lister</a>
 <a href="../collaborateurs/nouveau" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span>nouveau</a>
-<a href="../collab/activites" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> statistiques</a>
+<a href="../logs/statistiques" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> statistiques</a>
 	<h1 style="text-align: center; margin: 20px 0 30px 0">Les visites</h1>
 
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Chemin</th>
-				<th>Nombre de visites</th>
-				<th>Min</th>
-				<th>Max</th>
-				<th>Moyenne</th>
+				<th>Date/Heure</th>
+				<th>Libellé</th>
 			</tr>
 		</thead>
 
 		<tbody>
-			<c:forEach var="visite" items="${visites}">
+			<c:forEach var="activites" items="${activites}">
 				<tr>
-					<td>${visite.chemin}</td>
-					<td>${visite.nbVisites}</td>
-					<td>${visite.min}</td>
-					<td>${visite.max}</td>
-					<td>${visite.moyenne}</td>
+					<td>${activites.dateForm()}</td>
+					<td>Creation d'un nouveau collaborateur - matricule : ${activites.getMatricule()}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

@@ -5,6 +5,17 @@ import java.time.ZonedDateTime;
 
 public class Collaborateur {
 
+	public Collaborateur(String nom, String prenom, LocalDate dateDeNaissance, String adresse, String numSecu,
+			String emailPro) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		DateDeNaissance = dateDeNaissance;
+		this.adresse = adresse;
+		this.numSecu = numSecu;
+		this.emailPro = emailPro;
+	}
+
 	public Collaborateur() {
 		super();
 

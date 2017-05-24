@@ -21,10 +21,12 @@
 
 <body class="container">
 
+<a href="nouveau" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> nouveau</a>
+<a href="activites" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span>activites</a>
+<a href="../logs/statistiques" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> statistiques</a>
+
 	<h2>Les collaborateurs :</h2>
 	
-	<a href="<c:url value='/collaborateurs/nouveau'></c:url>"
-		class="btn btn-primary">Nouveau</a>
 	<ul>
 		<c:forEach var="collab" items="${listeCollaborateurs}">
 			<li>${collab.matricule}- ${collab.nom} ${collab.prenom}</li>
@@ -86,12 +88,6 @@
 
 	<br>
 	<br>
-	<br>
-
-	<a href="nouveau" class="btn btn-lg btn-primary"><span
-		class="glyphicon glyphicon-user"></span> nouveau</a>
-	<br>
-	<br>
 	<h3>Liste des collaborateur :</h3>
 	<br>
 	<div class="jumbotron row ">
@@ -106,15 +102,17 @@
 		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
 
 			<ul>
-				<li>Matricule : <%=collab.getMatricule()%> <br> Nom : <%=collab.getNom()%><br>
-					Prenom : <%=collab.getPrenom()%><br> Date de Naissance : <%=collab.getDateDeNaissance()%><br>
-					Adresse : <%=collab.getAdresse()%><br> Numero de séurité
-					sociale : <%=collab.getNumSecu()%><br> Date de création : <%=collab.getDateHeureCreation()%><br>
-					Email professionel : <%=collab.getEmailPro()%><br> actif ? : <%=collab.isActif()%><br>
-					<br> <br>
+				<li>
+					Nom : <%=collab.getNom()%><br>
+					Prenom : <%=collab.getPrenom()%><br> 
+					Date de Naissance : <%=collab.getDateDeNaissance()%><br>
+					Adresse : <%=collab.getAdresse()%><br> 
+					Numero de sécurité sociale : <%=collab.getNumSecu()%><br>
+					Email professionel : <%=collab.getEmailPro()%><br>
+					<br>
 				</li>
 				<a href="" class="btn btn-xs btn-warning pull-right"><span
-					class="glyphicon glyphicon-pencil"></span> Modifier</a>
+					class="glyphicon glyphicon-pencil"></span> Editer</a>
 			</ul>
 
 		</div>

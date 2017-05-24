@@ -31,9 +31,10 @@
 		}
 	%>
 
-
-	<a href="lister" class="btn btn-lg btn-danger"><span
-		class="glyphicon glyphicon-arrow-left"></span> Annuler</a>
+	
+<a href="lister" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> lister</a>
+<a href="../collab/activites" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span>activites</a>
+<a href="../logs/statistiques" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span> statistiques</a>
 	<br>
 	<br>
 	<br>
