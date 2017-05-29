@@ -16,7 +16,7 @@ public class Collaborateur {
 	public Collaborateur(String nom, String prenom, LocalDate dateDeNaissance, String adresse, String numSecu,
 			String emailPro) {
 		super();
-		this.matricule = UUID.randomUUID().toString();
+		this.matricule = nom+prenom;
 		this.nom = nom;
 		this.prenom = prenom;
 		DateDeNaissance = dateDeNaissance;
@@ -30,7 +30,6 @@ public class Collaborateur {
 
 		this.actif = true;
 		this.photo = "urls de l'image";
-
 	}
 	
 	@Id
@@ -59,6 +58,34 @@ public class Collaborateur {
 	@ManyToOne
 	private Departement departement;
 	
+	private String nomBanque;
+	private String Iban;
+	private String Bic;
+	
+
+	public String getNomBanque() {
+		return nomBanque;
+	}
+
+	public void setNomBanque(String nomBanque) {
+		this.nomBanque = nomBanque;
+	}
+
+	public String getIban() {
+		return Iban;
+	}
+
+	public void setIban(String iban) {
+		Iban = iban;
+	}
+
+	public String getBic() {
+		return Bic;
+	}
+
+	public void setBic(String bic) {
+		Bic = bic;
+	}
 
 	public String getIntitulePoste() {
 		return intitulePoste;
