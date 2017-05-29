@@ -1,13 +1,14 @@
 package dev.sgp.entite;
 
 import java.time.LocalDate;
+
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Collaborateur {
@@ -53,6 +54,27 @@ public class Collaborateur {
 	private ZonedDateTime dateHeureCreation;
 	
 	private boolean actif;
+	
+	private String intitulePoste;
+	@ManyToOne
+	private Departement departement;
+	
+
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
+	}
+
+	public Departement getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
 
 	public String getMatricule() {
 		return matricule;

@@ -2,6 +2,8 @@ package dev.sgp.service;
 
 import java.util.List;
 
+
+
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
@@ -30,11 +32,17 @@ public class CollaborateurService {
 	public List<Collaborateur> listerCollaborateurs() {
 
 		TypedQuery<Collaborateur> query = emfact.createQuery("select c from Collaborateur c", Collaborateur.class);
-
 		return query.getResultList();
 
 	}
+	
+	public List<Collaborateur> listerCollaborateursParDepartement(Integer depId) {
 
+		TypedQuery<Collaborateur> query = emfact.createQuery("select c from Collaborateur c where c.departement.id=:depId", Collaborateur.class)
+				.setParameter("depId", depId);
+		return query.getResultList();
+
+	}
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void sauvegarderCollaborateur(Collaborateur collab) {
 
